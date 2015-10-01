@@ -1,0 +1,30 @@
+---
+roles:
+
+  # General Purpose Roles
+  # =====================
+  el-utils:
+    provisioners:
+      - type: shell
+        inline: |
+          yum -y install git
+
+  # Puppet Specific Roles
+  # =================
+  r10k:
+    provisioners:
+      - type: shell
+        inline: |
+          repo=puppet-r10k
+          git clone https://github.com/snemetz/${repo}.git /root/${repo}
+          # Can't install until after Puppet is installed
+          #cd ${repo}
+          #./install.sh
+          #cd ..
+          #rm -rf ${repo}
+
+  # Jenkins Specific Roles
+  # ======================
+  forward-jenkins:
+    forwarded_ports:
+      - {guest: 8080, host: 8080, auto_correct: true}
