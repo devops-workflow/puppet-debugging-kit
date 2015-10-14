@@ -3,7 +3,7 @@ namespace :setup do
   desc 'Install requirements into a global Vagrant setup'
   task :global do
     %w[oscar vagrant-vbox-snapshot].each do |plugin|
-      system("vagrant plugin install --plugin-source https://rubygems.org/gems #{plugin}")
+      system("vagrant plugin install #{plugin}")
     end
   end
 
