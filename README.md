@@ -40,11 +40,11 @@ Once the VM has been created, and the pe_build fails, you can restart the provis
 
 Remove the git repository from the PE Master VM:
 
-  vagrant ssh pe-318-master
-  sudo rm -rf /root/puppet-r10k
-  exit
+    vagrant ssh pe-381-master
+    sudo rm -rf /root/puppet-r10k
+    exit
 
 Restart the provisioning from your machine:
 
-  vagrant provision
+    vagrant provision
 
